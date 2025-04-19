@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ROAS Calculator</title>
+</head>
+<body>
+  <h2>ROAS Calculator</h2>
+  <label>Ad Spend (RM):</label>
+  <input type="number" id="adSpend"><br><br>
+  
+  <label>Revenue / GMV (RM):</label>
+  <input type="number" id="revenue"><br><br>
+  
+  <button onclick="calculateROAS()">Calculate ROAS</button>
+  
+  <h3 id="result"></h3>
+  
+  <script>
+    function calculateROAS() {
+      const adSpend = parseFloat(document.getElementById("adSpend").value);
+      const revenue = parseFloat(document.getElementById("revenue").value);
+      if (!adSpend || !revenue || adSpend === 0) {
+        document.getElementById("result").innerText = "Masukkan nilai yang sah!";
+        return;
+      }
+      const roas = revenue / adSpend;
+      document.getElementById("result").innerText = `ROAS: ${roas.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
